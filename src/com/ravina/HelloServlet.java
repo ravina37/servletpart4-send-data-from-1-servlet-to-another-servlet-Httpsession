@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class HelloServlet extends HttpServlet{
 	
@@ -16,9 +17,12 @@ public class HelloServlet extends HttpServlet{
 		int value1=Integer.parseInt(req.getParameter("value1"));
 		int value2=Integer.parseInt(req.getParameter("value2"));
 		int add=value1+value2;
-		req.setAttribute("add", add);
-		RequestDispatcher rd=req.getRequestDispatcher("/add");
-		rd.forward(req, res);
+		HttpSession session=req.getSession();
+		session.setAttribute("add", add);
+//		RequestDispatcher rd=req.getRequestDispatcher("/add");
+//		rd.forward(req, res);
+		
+		res.sendRedirect("add");
 	}
 
 }
