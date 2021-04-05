@@ -16,6 +16,7 @@ public class AddServlet extends HttpServlet {
 		PrintWriter out=res.getWriter();
 		out.print("<h1>Result:</h1>");
 		out.println("Add of above 2 values is:"+add);
+		System.out.println("worked");
 	}
 
 }
